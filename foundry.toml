@@ -1,0 +1,43 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+test = "test"
+script = "script"
+
+# ── Saída de verbosidade: -vvvv mostra traces + estados de storage ─────
+verbosity = 2
+
+# ── Compilação ─────────────────────────────────────────────────────────
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+solc_version = "0.8.24"
+
+# `data/` guarda arquivos lidos por vm.readFile (postmortems, abis, fixtures)
+fs_permissions = [{ access = "read", path = "./data" }]
+
+# ─────────────────────────────────────────────────────────────────────
+# Endpoints dos forks.
+#
+# O nome à esquerda ("mainnet") é o que vc escreve no teste:
+#     vm.createSelectFork("mainnet", 19_000_000);
+#
+# O endpoint PRECISA ser archive (servir estado histórico). Endpoint
+# "latest-only" falha com: "pruned history unavailable".
+# Troque aqui (ou defina a var no .env) conforme o seu plano.
+# ─────────────────────────────────────────────────────────────────────
+[rpc_endpoints]
+mainnet = "${ETHEREUM_RPC_URL}"
+
+[fmt]
+line_length = 100
+tab_width = 4
+bracket_spacing = false
+int_types = "long"
+
+[profile.default.fuzz]
+runs = 256
+
+[profile.ci]
+verbosity = 4

@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "descricao": "Dump de estado on-chain verificado. Gerado por script/verify_block.py. Nao edite a mao - regenere.",
+    "fork_block": 16818061,
+    "rpc": "https://eth-pokt.nodies.app",
+    "gerado_em": "2026-10-16",
+    "aviso": "Dump confere ESTADO, naoSeed. Nenhum valor aqui e dinheiro real."
+  },
+  "enderecos": {
+    "wstETH": {
+      "endereco": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "code_bytes": 6492,
+      "name": "Wrapped liquid staked Ether 2.0",
+      "symbol": "wstETH",
+      "totalSupply": "1371774144781373183727345"
+    },
+    "eToken_ewstETH": {
+      "endereco": "0xbd1bd5C956684f7EB79DA40f582cbE1373A1D593",
+      "code_bytes": 519,
+      "name": "Euler Pool: Wrapped liquid staked Ether 2.0",
+      "symbol": "ewstETH",
+      "totalSupply": "86891281197819163757638"
+    },
+    "dToken_dwstETH": {
+      "endereco": "0x436548baAb5Ec4D79F669D1b9506D67e98927aF7",
+      "code_bytes": 519,
+      "name": "Euler Debt: Wrapped liquid staked Ether 2.0",
+      "symbol": "dwstETH",
+      "totalSupply": "21614484876271693195093"
+    },
+    "Euler_Dispatcher": {
+      "endereco": "0x27182842E098f60e3D576794A5bFFb0777E025d3",
+      "code_bytes": 907,
+      "name": "Euler Protocol"
+    },
+    "mod_Liquidation": {
+      "endereco": "0xf43ce1d09050BAfd6980dD43Cde2aB9F18C85b34",
+      "code_bytes": 519
+    },
+    "mod_Markets": {
+      "endereco": "0x3520d5a913427E6F0D6A83E07ccD4A4da316e4d3",
+      "code_bytes": 519
+    },
+    "Balancer_Vault": {
+      "endereco": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+      "code_bytes": 24512
+    }
+  },
+  "saldos_wstETH": {
+    "wstETH": "0",
+    "eToken_ewstETH": "0",
+    "dToken_dwstETH": "0",
+    "Euler_Dispatcher": "66271498175683316786271",
+    "mod_Liquidation": "0",
+    "mod_Markets": "0",
+    "Balancer_Vault": "105487102677271584295577",
+    "_nota": "Euler_Dispatcher e quem custodia o subjacente; o eToken nao tem saldo."
+  }
+}

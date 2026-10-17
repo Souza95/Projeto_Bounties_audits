@@ -1,0 +1,66 @@
+# ─────────────────────────────────────────────────────────────────────
+# Segredos — nunca versionar
+# ─────────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+keystore/
+# mnemonic/seed ficam fora por princípio, não por acaso
+mnemonic*
+seed*
+*.seed
+
+# ─────────────────────────────────────────────────────────────────────
+# Foundry — artefatos de build, reproduzíveis
+# ─────────────────────────────────────────────────────────────────────
+out/
+cache/
+broadcast/
+docs/screenshots/
+
+# ─────────────────────────────────────────────────────────────────────
+# Dependências (lib/)
+# ─────────────────────────────────────────────────────────────────────
+# NÃO ignorar lib/ aqui: lib/forge-std é submodule e precisa ser
+# rastreável por `git submodule add`. Versão em que o diretório inteiro
+# da dependência é commitado infla o repo e perde o pin exato.
+#
+# Ao adicionar outra lib, use SEMPRE:
+#     forge install owner/repo --no-git    (depois)
+#     git submodule add https://github.com/owner/repo lib/repo
+# Se esquecer o submodule, o lib entra versionado — commit isolado,
+# não é fatal, mas o repo cresce.
+
+# ─────────────────────────────────────────────────────────────────────
+# Sistema operacional
+# ─────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ─────────────────────────────────────────────────────────────────────
+# Editores
+# ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ─────────────────────────────────────────────────────────────────────
+# Logs e temporários
+# ─────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+*.tmp
+*.bak
+tmp/
+/tmp/
+
+# ─────────────────────────────────────────────────────────────────────
+# NUNCA ignorar
+# ─────────────────────────────────────────────────────────────────────
+# src/  test/  script/  docs/  data/  foundry.toml  README.md
+# Permanecem versionados de propósito: são o conteúdo do repositório.
