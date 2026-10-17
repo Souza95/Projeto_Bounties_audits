@@ -153,6 +153,8 @@ Foundry 1.8.5 · solc 0.8.24 · `lib/forge-std` como submodule (pinado).
 
 ## Licença e escopo
 
+MIT — ver [`LICENSE`](LICENSE).
+
 Laboratório educacional em fork local. Nenhum código aqui é apontado para
 contrato vivo, e nenhum teste movimenta ativo de terceiros.
 

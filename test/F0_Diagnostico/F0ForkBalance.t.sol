@@ -26,7 +26,7 @@ import {Test, console} from "forge-std/Test.sol";
 ///  ("mainnet", N):      mainnet, no bloco N.
 ///  (urlDoRpc, N):       a url explícita + bloco N.
 ///
-///  Consequência prática:合约 o "alvo" do seu exploit pode ser um contrato
+///  Consequência prática: o "alvo" do seu exploit pode ser um contrato
 ///  real da mainnet com bilhões em ETH. Nada disso é simulado.
 contract F0ForkBalance is Test {
     // Endereço com saldo ETH conhecido e estável (hot wallet da Binance).
