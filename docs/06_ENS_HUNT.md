@@ -305,3 +305,5 @@ Os dois são o mesmo erro: confiar na aparência antes de verificar a fronteira.
 
 Nenhuma submissão foi feita ao Immunefi. Nenhum achado foi divulgado. Todo o
 material aqui é leitura de código público.
+
+**Anterior**: [Arquitetura](05_ARQUITETURA.md) · **Início**: [Roadmap](00_ROADMAP.md)

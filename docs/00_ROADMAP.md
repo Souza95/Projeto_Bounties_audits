@@ -104,6 +104,12 @@ Não depende de nada externo; é a sequência de desafios do plano.
 Sugestão de ritmo: 2 desafios/dia, escrevendo o **contra-teste** de cada um
 (o que prova que o patch fecha). Sem o contra-teste, metade do aprendizado some.
 
+> **Por que continua aberto.** A Fase 3 já entrega o que estes desafios
+> entregariam — ler código alheio, formular hipótese de falha, procurar
+> refutar, e descobrir que a maioria do que se suspeita não é bug. Se a caça
+> ficar seca e vier a necessidade de mais base, esta lista é o próximo lugar a
+> puxar.
+
 ---
 
 ## Fase 3 — Auditoria real — EM CURSO

@@ -25,16 +25,28 @@ Projeto_Bounties_audits/
 │
 ├── script/
 │   ├── F1Drain.s.sol          versão `forge script` do drain
-│   └── verify_block.py        verifica endereços on-chain antes do exploit
+│   ├── verify_block.py        verifica endereços on-chain antes do exploit
+│   └── check_encoding.py      barra lixo de encoding — rode antes de commitar
 │
 ├── docs/                     a documentação (leia a partir de 00_ROADMAP.md)
-├── labs/
-│   ├── ethernaut/             ← Fase 2, vazio
-│   ├── dvtd/                  ← Fase 2, vazio
-│   └── notas/                 ← suas anotações dos desafios
+│   ├── 00_ROADMAP.md             plano, status, o que falta
+│   ├── 01_FASE0_DIAGNOSTICO.md   o que vm.createSelectFork faz
+│   ├── 02_FASE1_DRENAGEM.md      o marco: drenar e imprimir
+│   ├── 03_CHEATCODES.md          prank, deal, expectRevert, roll
+│   ├── 04_EULER_POSTMORTEM.md    o exploit real + os 8 erros
+│   ├── 05_ARQUITETURA.md         este arquivo
+│   ├── 06_ENS_HUNT.md            Fase 3: caça em produção, 5 hipóteses, 0 reports
+│   └── 99_CARTEIRAS_PAGAMENTO.md endereços públicos de recebimento
+│
+├── labs/                     ← Fase 2, ainda vazio (git não versiona pasta vazia)
+│   ├── ethernaut/
+│   ├── dvtd/
+│   └── notas/
 │
 ├── lib/forge-std/            dependência (git submodule)
 └── data/                     fixtures lidos por vm.readFile
+    ├── euler_block_16818061.json      estado on-chain no bloco do fork
+    └── euler_incidente_referencias.md tx, blocos, postmortems, invariante
 ```
 
 ## Por que `src/` e `test/` são espelhados
@@ -56,6 +68,7 @@ forge test --match-path 'test/F1_Drenagem/*'
 | Toda constante mainnet tem `@dev` explicando como foi verificada | Endereço errado = PoC que "funciona" e não reproduz nada |
 | Bug do lab fica ao lado da versão corrigida | Diff visual é o material do relatório |
 | Toda vuln tem contra-teste | Prova que o patch fecha |
+| `script/check_encoding.py` passa antes de qualquer commit | Lixo de encoding já vazou 3x neste repo (LICENSE, descrição do GitHub, um `.t.sol`) e os 3 passaram por revisão do diff |
 
 ## Comandos
 
@@ -77,6 +90,7 @@ forge fmt
 forge coverage
 
 python3 script/verify_block.py 16818061                 # confere endereços
+python3 script/check_encoding.py                        # barra lixo de encoding
 ```
 
 ## Ao adicionar um exploit novo
@@ -96,4 +110,4 @@ python3 script/verify_block.py 16818061                 # confere endereços
 7. Meça a **reserva do protocolo** antes e depois. É a métrica honesta.
 8. Escreva o contra-teste.
 
-**Anterior**: [Euler](04_EULER_POSTMORTEM.md) · **Início**: [Roadmap](00_ROADMAP.md)
+**Anterior**: [Euler](04_EULER_POSTMORTEM.md) · **Próximo**: [Caça no ENS](06_ENS_HUNT.md) · **Início**: [Roadmap](00_ROADMAP.md)
