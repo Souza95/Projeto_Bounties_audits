@@ -8,9 +8,14 @@ Status real do projeto. Data de referência: 16/10/2026.
 Fase 0  Diagnóstico .................. CONCLUÍDA
 Fase 1  Drenagem + vocabulário ....... CONCLUÍDA
 Fase 1  Exploit real com postmortem .. CONCLUÍDA (Euler)
-Fase 2  Treinamento estruturado ...... PRÓXIMO
-Fase 3  Auditoria real ............... A INICIAR
+Fase 2  Treinamento estruturado ...... EM CURSO (coberta pela Fase 3)
+Fase 3  Auditoria real ............... EM CURSO — 1ª caça feita, 0 reports
 ```
+
+> A Fase 2 aparece como absorvida: treinar em Ethernaut/weth foi julgado de
+> menor ganho do que auditar código real. O treinamento virou calha dentro da
+> própria Fase 3 — ler e refutar hipóteses em TypeScript é o mesmo exercício de
+> ler e refutar em Solidity, sem a pressão de disputa de um contest.
 
 ---
 
@@ -101,12 +106,31 @@ Sugestão de ritmo: 2 desafios/dia, escrevendo o **contra-teste** de cada um
 
 ---
 
-## Fase 3 — Auditoria real
+## Fase 3 — Auditoria real — EM CURSO
 
-- [ ] Escolher 3–5 protocolos Immunefi com bug bounty **ativo**
-- [ ] Ler os relatórios públicos já pagos (Immunefi publica postmortem)
-- [ ] Tentar repetir um achado antigo no fork — é o treino mais barato
-- [ ] Escrever o relatório no formato do programa: impacto, PoC, patch
+- [x] Escolher protocolo Immunefi com bounty **ativo** — **ENS**
+- [x] Ler o escopo, os tetos de severidade e o histórico do programa
+- [x] Caçar por diferença no código novo (não leitura linear)
+- [x] Formular hipóteses, procurar refutar, registrar evidência
+- [x] Publicar o método e a evidência — [`06_ENS_HUNT.md`](06_ENS_HUNT.md)
+- [ ] Submeter um report — **bloqueado: nada subível foi encontrado**
+- [ ] Repetir em 2–3 protocolos menores antes de mirar em Critical
+
+### Primeira caça: ENS — 5 hipóteses, 0 reports
+
+| Hipótese | Veredicto |
+|---|---|
+| Unwrap de composite resolver confia em valor forjável | **Refutada** — allowlist da mainnet está vazia, caminho morto |
+| Ponte enfraquece a checagem de inception | **Refutada** — reimplementação exata de RFC1982 |
+| Endpoint DoH configurável permite forjar a cadeia de proofs | **Refutada** — âncora é estado on-chain, `verifyRRSet` decide |
+| Guard de expiração compara hex sem normalizar | **Latente** — não é bug hoje; conserto de uma linha |
+| Relógio do cliente decide a expiração | **Refutada** — gate é economia de gas, não segurança |
+
+Zero reports. O método e a evidência em [`06_ENS_HUNT.md`](06_ENS_HUNT.md).
+
+Nenhum achado foi divulgado. Todo o material é leitura de código público. Se
+aparecer algo subível, o caminho é submeter pelo Immunefi — que é o canal
+autorizado, e dispensa autorização prévia.
 
 ### Ferramentas que viram depois
 

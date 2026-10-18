@@ -4,6 +4,10 @@ Laboratório de Foundry em Ethereum. Do diagnóstico à reprodução de um explo
 real de **~$197M** (Euler Finance, 13/03/2023) contra contratos reais da
 mainnet, em fork histórico.
 
+Mais uma metade: **caça em código de produção** — auditoria do código atual da
+ENS, cinco hipóteses, cinco refutadas, nenhum report. Ver
+[`docs/06_ENS_HUNT.md`](docs/06_ENS_HUNT.md).
+
 ```
 24 testes · 5 suítes · todos passando
 ```
@@ -25,6 +29,13 @@ arquitetura de delegatecall de um protocolo a partir do bytecode, decifrar
 uma ABI que divergiu do esperado, calibrar limites experimenting, e chegar
 num exploit que produz lucro contábil fechado.
 
+**Também é.** Auditoria de código de produção em duas trilhas — TypeScript e
+Solidity — começando pelo diff mais recente, formulando hipótese de falha,
+identificando qual lado decide e procurando **refutar**. Cinco hipóteses no
+código atual da ENS, cinco refutadas. Em auditoria real a maioria do que se
+suspeita não é bug, e o que separa quem audita de quem lê diff é a disciplina
+de procurar refutar antes de submeter — comprovada aqui em cima.
+
 **Não é, e não deve ser lido como:**
 
 - **Reprodução de bug de 2023 já corrigido.** O Euler v1 foi abandonado e
@@ -34,8 +45,10 @@ num exploit que produz lucro contábil fechado.
   que o encadeamento de chamadas funciona — não é receita, e nem de longe se
   aproxima dos $197M do incidente real (este PoC extrai ~1% disso, porque está
   dimensionado ao capital de giro escolhido para caber no teste).
-- **Fase 3.** Nada foi submetido a Immunefi. A lacuna entre o que existe aqui e
-  o que paga é inteiramente a fase de auditoria em protocolo vivo.
+- **"Já achei bug em produção".** Não. A caça na ENS rendeu zero reports
+  subíveis, e o documento diz isso na primeira linha. A lacuna entre o que
+  existe aqui e o que paga continua sendo **um report aceito** — e nenhum foi
+  submetido até agora.
 
 O ativo real é o raciocínio demonstrado — e isso é contratável como
 competência, não como payout de bounty.
@@ -82,6 +95,7 @@ exploit sem ler o contrato três vezes.**
 | [docs/03_CHEATCODES.md](docs/03_CHEATCODES.md) | `prank`, `deal`, `expectRevert`, `roll`… |
 | [docs/04_EULER_POSTMORTEM.md](docs/04_EULER_POSTMORTEM.md) | o exploit real + **os 8 erros que cometi** |
 | [docs/05_ARQUITETURA.md](docs/05_ARQUITETURA.md) | estrutura de pastas |
+| [docs/06_ENS_HUNT.md](docs/06_ENS_HUNT.md) | **Fase 3: caça em código de produção, 5 hipóteses, 0 reports** |
 | [data/euler_incidente_referencias.md](data/euler_incidente_referencias.md) | tx, blocos, postmortems, invariante quebrada |
 
 ### Os três achados que mais custaram tempo
